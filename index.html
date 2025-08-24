@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Analytics Pro Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-chart-line"></i>
+            <h2>SaaS Analytics Pro</h2>
+        </div>
+        <nav>
+            <ul>
+                <li class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</li>
+                <li><i class="fas fa-users"></i> Customers</li>
+                <li><i class="fas fa-euro-sign"></i> Revenue</li>
+                <li><i class="fas fa-chart-bar"></i> Analytics</li>
+                <li><i class="fas fa-headset"></i> Support</li>
+                <li><i class="fas fa-server"></i> Infrastructure</li>
+                <li><i class="fas fa-cog"></i> Settings</li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <h1>Dashboard Overview</h1>
+                <p>Bienvenue dans votre centre de contrôle SaaS</p>
+            </div>
+            <div class="header-right">
+                <div class="notification-icon">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count">3</span>
+                </div>
+                <div class="user-profile">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="Profile">
+                    <span>Mathieu</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- KPI Cards -->
+        <div class="kpi-container">
+            <div class="kpi-card revenue">
+                <div class="kpi-icon">
+                    <i class="fas fa-euro-sign"></i>
+                </div>
+                <div class="kpi-content">
+                    <h3>MRR</h3>
+                    <div class="kpi-value" id="mrr">€42,350</div>
+                    <div class="kpi-change positive">
+                        <i class="fas fa-arrow-up"></i> +12.5%
+                    </div>
+                </div>
+            </div>
+
+            <div class="kpi-card customers">
+                <div class="kpi-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="kpi-content">
+                    <h3>Active Customers</h3>
+                    <div class="kpi-value" id="customers">1,247</div>
+                    <div class="kpi-change positive">
+                        <i class="fas fa-arrow-up"></i> +8.3%
+                    </div>
+                </div>
+            </div>
+
+            <div class="kpi-card churn">
+                <div class="kpi-icon">
+                    <i class="fas fa-user-minus"></i>
+                </div>
+                <div class="kpi-content">
+                    <h3>Churn Rate</h3>
+                    <div class="kpi-value" id="churn">2.1%</div>
+                    <div class="kpi-change negative">
+                        <i class="fas fa-arrow-down"></i> -0.4%
+                    </div>
+                </div>
+            </div>
+
+            <div class="kpi-card support">
+                <div class="kpi-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="kpi-content">
+                    <h3>Open Tickets</h3>
+                    <div class="kpi-value" id="tickets">23</div>
+                    <div class="kpi-change neutral">
+                        <i class="fas fa-minus"></i> 0%
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-container">
+            <div class="chart-card large">
+                <div class="chart-header">
+                    <h3>Revenue Analytics</h3>
+                    <div class="chart-controls">
+                        <button class="active">7D</button>
+                        <button>30D</button>
+                        <button>90D</button>
+                    </div>
+                </div>
+                <canvas id="revenueChart"></canvas>
+            </div>
+
+            <div class="chart-card medium">
+                <div class="chart-header">
+                    <h3>Customer Growth</h3>
+                </div>
+                <canvas id="customerChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="bottom-section">
+            <div class="activity-feed">
+                <h3>Recent Activity</h3>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon new-customer">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Nouveau client inscrit</strong></p>
+                            <span>TechCorp - Plan Pro</span>
+                            <small>Il y a 2 minutes</small>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon payment">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Paiement reçu</strong></p>
+                            <span>€299 - StartupXYZ</span>
+                            <small>Il y a 8 minutes</small>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon support">
+                            <i class="fas fa-ticket-alt"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Ticket résolu</strong></p>
+                            <span>#2847 - Bug d'authentification</span>
+                            <small>Il y a 15 minutes</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="server-status">
+                <h3>Infrastructure Status</h3>
+                <div class="server-metrics">
+                    <div class="metric">
+                        <div class="metric-label">CPU Usage</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill cpu" id="cpu-usage"></div>
+                        </div>
+                        <div class="metric-value" id="cpu-value">45%</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Memory</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill memory" id="memory-usage"></div>
+                        </div>
+                        <div class="metric-value" id="memory-value">67%</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Storage</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill storage" id="storage-usage"></div>
+                        </div>
+                        <div class="metric-value" id="storage-value">34%</div>
+                    </div>
+                </div>
+                <div class="server-uptime">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Uptime: <strong id="uptime">99.98%</strong></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
